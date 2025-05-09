@@ -1,1 +1,0 @@
-# CICD-of-full-end-to-end-2-tier-web-app-to-aws-using-jenkins-docker-webhook-and-sonarqube
