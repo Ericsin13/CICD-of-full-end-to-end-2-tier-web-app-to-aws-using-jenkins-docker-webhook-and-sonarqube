@@ -1,4 +1,4 @@
-version: '3'
+iversion: '3'
 
 services:
   frontend:
@@ -11,3 +11,20 @@ services:
       - backend
     networks:
       - wild-rydes-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - AWS_REGION=us-east-1
+      - DYNAMODB_TABLE=WildRydes
+      - AWS_SDK_LOAD_CONFIG=1
+    networks:
+      - wild-rydes-network
+
+networks:
+  wild-rydes-network:
+    driver: bridge
